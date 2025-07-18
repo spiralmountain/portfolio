@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hanna Delmont</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto Mono', monospace;
+            background: #f0f0f0;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 40px;
+        }
+    .container {
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    h1 {
+        font-size: 36px;
+        font-weight: 700;
+        margin-bottom: 60px;
+    }
+
+    .about-test {
+        text-align: left;
+        margin-bottom: 60px;
+    }
+
+    .contact-test {
+        text-align: left;
+    }
+
+    .content {
+        display: flex;
+    }
+
+    .left-column {
+        flex: 0 0 200px;
+        margin-right: 40px;
+    }
+
+    .right-column {
+        flex: 1;
+    }
+
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+        body {
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 30px;
+        }
+
+        .content {
+            flex-direction: column;
+        }
+
+        .left-column {
+            flex: none;
+            margin-right: 0;
+            margin-bottom: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .category {
+            flex: 1;
+            min-width: 120px;
+            text-align: center;
+            margin-bottom: 0;
+            font-size: 14px;
+        }
+
+        .right-column {
+            flex: none;
+        }
+
+        .carousel-btn {
+            font-size: 20px;
+            padding: 8px;
+        }
+
+        .prev {
+            left: 5px;
+        }
+
+        .next {
+            right: 5px;
+        }
+
+        .info {
+            margin-top: 15px;
+        }
+
+        .about-test, .contact-test {
+            margin-bottom: 30px;
+        }
+
+        .footer {
+            margin-top: 30px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        body {
+            padding: 15px;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .left-column {
+            margin-bottom: 20px;
+        }
+
+        .category {
+            min-width: 100px;
+            font-size: 12px;
+            padding: 6px 8px;
+        }
+
+        .carousel-btn {
+            font-size: 18px;
+            padding: 6px;
+        }
+    }
+
+    .category {
+        margin-bottom: 10px;
+        cursor: pointer;
+        padding: 8px 12px;
+        border-radius: 4px;
+        transition: background-color 0.3s;
+    }
+
+    .category:hover {
+        background-color: #e0e0e0;
+    }
+
+    .category.active {
+        font-weight: 700;
+        background-color: #d0d0d0;
+    }
+
+    .carousel {
+        position: relative;
+        margin-bottom: 20px;
+    }
+
+    .carousel-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(0, 0, 0, 0.6);
+        color: #fff;
+        border: none;
+        font-size: 24px;
+        padding: 10px;
+        cursor: pointer;
+        transition: background 0.3s;
+        z-index: 10;
+        border-radius: 4px;
+    }
+
+    .carousel-btn:hover {
+        background: rgba(0, 0, 0, 0.8);
+    }
+
+    .prev {
+        left: 10px;
+    }
+
+    .next {
+        right: 10px;
+    }
+
+    .video-container {
+        width: 100%;
+        padding-bottom: 56.25%;
+        position: relative;
+        background: #000;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .video-placeholder {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .info {
+        margin-top: 10px;
+    }
+
+    .info p {
+        margin: 0;
+    }
+
+    .footer {
+        margin-top: 40px;
+        text-align: left;
+    }
+
+    .footer p {
+        margin-bottom: 10px;
+    }
+
+    .social-icons {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    .social-icons a {
+        color: #333;
+        font-size: 24px;
+        margin: 0 10px;
+        transition: color 0.3s;
+    }
+
+    .social-icons a:hover {
+        color: #666;
+    }
+
+    .social-icons img {
+        width: 24px;
+        height: 24px;
+        vertical-align: middle;
+    }
+
+    .copyright {
+        font-size: 14px;
+        color: #999;
+        text-align: center;
+    }
+
+    a {
+        color: #333;
+        text-decoration: underline;
+    }
+
+    a:hover {
+        color: #666;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hanna Delmont</h1>
+        <div class="content">
+            <div class="left-column">
+                <div class="category active" data-category="ai">AI</div>
+                <div class="category" data-category="director">Director</div>
+                <div class="category" data-category="assistant-editor">Assistant Editor</div>
+                <div class="category" data-category="post-supervisor">Post Supervisor</div>
+                <div class="category" data-category="animation">Hand Drawn Animation</div>
+                <div class="category" data-category="experimental">Experimental</div>
+            </div>
+            <div class="right-column">
+                <div class="carousel">
+                    <button class="carousel-btn prev">‹</button>
+                    <div class="video-container">
+                        <!-- Video embed will be dynamically inserted here -->
+                    </div>
+                    <button class="carousel-btn next">›</button>
+                </div>
+                <div class="info">
+                    <p><strong id="title"></strong><br><span id="year"></span><br><span id="description"></span></p>
+                </div>
+            </div>
+        </div>
+    <div class="footer">
+        <p class="contact-test"><b>Contact:</b> hanna1delmont@gmail.com</p>
+        <p class="about-test"><b>About:</b> I am a Los Angeles-based AI technical artist and post-production supervisor, blending cutting-edge technology with cinematic storytelling. With 10 years in editorial and 2 years of professional AI-driven workflows, I specialize in meeting creative and technical challenges. Check out my <a href="https://openart.ai/workflows/eJokv05dmFb2QIo4B254" target="_blank">OpenArt.ai profile</a> for custom ComfyUI workflows. Let's redefine the future of post-production together.</p>
+        <div style="padding-bottom: 60px;"></div>
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/your-profile" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.imdb.com/name/your-profile" target="_blank"><i class="fab fa-imdb"></i></a>
+            <a href="https://www.instagram.com/hanna.aiwork" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p class="copyright">&copy; Hanna Delmont 2025</p>
+    </div>
+</div>
+
+<script>
+    const projects = [
+        {
+            category: 'ai',
+            title: '5 Hour Energy - AI Spec Ad',
+            year: '2024',
+            description: 'AI-generated commercial showcasing generative AI capabilities.',
+            videoId: 'youtube-0hGzp8Ro-o0'
+        },
+        {
+            category: 'ai',
+            title: 'The Last Peyotera: A Psychedelic Short Film - Made with Generative AI',
+            year: '2025',
+            description: 'An aging peyotera and her gamer grandson must reclaim her stolen sacred peyote in a psychedelic desert journey of survival.',
+            videoId: 'youtube-OSiAFgbDHAg'
+        },
+        {
+            category: 'ai',
+            title: 'Third Places: Coming of Age in America\'s Bookstores | AI Documentary',
+            year: '2024',
+            description: 'Through intimate footage and interviews capturing the 2010s, this documentary explores how these retail spaces became crucial "third places" for a generation of youth seeking community and safety.',
+            videoId: 'youtube-EWsnZEdNnu8'
+        },
+        {
+            category: 'ai',
+            title: 'Tom\'s Toothpaste - AI Spec Ad',
+            year: '2023',
+            description: 'AI-generated commercial showcasing generative AI capabilities.',
+            videoId: 'youtube-A9n7GGx_Cxc'
+        },
+        {
+            category: 'ai',
+            title: 'object permanence',
+            year: '2017',
+            description: 'Creative exploration using early stable diffusion.',
+            videoId: 'vimeo-894775031'
+        },
+        {
+            category: 'director',
+            title: 'Go with God But Go',
+            year: '2022',
+            description: 'Short narrative film about a one night stand relationship set in Chicago.',
+            videoId: 'vimeo-689559060'
+        },
+        {
+            category: 'director',
+            title: 'Family Camp: Documentary on Nonviolent Communication',
+            year: '2016',
+            description: 'A slice of life depiction about a camp in Vashon Island, WA that teaches parents how to parent nonviolently.',
+            videoId: 'vimeo-165280759'
+        },
+        {
+            category: 'director',
+            title: 'The Jackson Bollocks',
+            year: '2019',
+            description: 'A semi-spoof on the traditional music documentary, featuring Robert Leslie and Edward Pankov.',
+            videoId: 'vimeo-327774340'
+        },
+        {
+            category: 'director',
+            title: 'The Man Who Made 12,000 Polaroid Portraits',
+            year: '2019',
+            description: 'Before the age of digital photographic reproduction, NYC photographer Ed Judice was commissioned by Polaroid to create 12,000 original SX-70 portraits of the same subjects. Edwin Land had these 12,000 images sent to 12,000 camera shops throughout America so people, for the first time in history, could see and hold an SX-70 photograph. We invited Ed to come to our studio in Brooklyn to share more about this incredible story.',
+            videoId: 'vimeo-347001186'
+        },
+        {
+            category: 'director',
+            title: 'Ridgewood Chocolate',
+            year: '2017',
+            description: 'A short documentary about making chocolate in Ridgewood, Queens.',
+            videoId: 'vimeo-238865405'
+        },
+        {
+            category: 'director',
+            title: 'Whistle in the Outer Lands',
+            year: '2021',
+            description: 'Experimental sound collage capturing Staten Island marshlands.',
+            videoId: 'vimeo-569425193'
+        },
+        {
+            category: 'assistant-editor',
+            title: 'Orgasm Inc: The Story of OneTaste',
+            year: '2022',
+            description: 'Netflix documentary feature - first assistant editor on this acclaimed documentary from Sloane Klevin and Sarah Gibson.',
+            videoId: 'youtube-11DiQzSLfmo'
+        },
+        {
+            category: 'assistant-editor',
+            title: 'Behind Scriptonite\'s 2004',
+            year: '2020',
+            description: 'Apple Music Exclusive Documentary - Assistant Editor.',
+            videoId: 'youtube-JfGRHa1Oqtw'
+        },
+        {
+            category: 'assistant-editor',
+            title: 'Finding Your Roots',
+            year: '2019',
+            description: 'PBS series with Henry Louis Gates Jr. - Assistant Editor on Season 6.',
+            videoId: 'youtube-tE4UdbOswMQ'
+        },
+        {
+            category: 'assistant-editor',
+            title: 'Obama: In Pursuit of a More Perfect Union',
+            year: '2021',
+            description: 'Three part HBO series on Obama from Kunhardt Films - Assistant Editor',
+            videoId: 'youtube-L15IUc0A6fo'
+        },
+        {
+            category: 'assistant-editor',
+            title: 'Night School',
+            year: '2018',
+            description: 'Feature documentary directed by Andrew Cohn - assistant editor.',
+            videoId: 'youtube-c_E7MlOyURM'
+        },
+        {
+            category: 'assistant-editor',
+            title: 'Lily Topples the World',
+            year: '2021',
+            description: 'Award-winning domino art documentary directed by Jeremy Workman - assistant editor.',
+            videoId: 'youtube-Hl80RRfh2jI'
+        },
+        {
+            category: 'assistant-editor',
+            title: 'The Last Thing Mary Saw',
+            year: '2021',
+            description: 'Indie horror film - assistant editor.',
+            videoId: 'youtube-N1ETn_iLavY'
+        },
+        {
+            category: 'post-supervisor',
+            title: 'Flawless AI',
+            year: '2023-2025',
+            description: 'Post Supervisor for cutting-edge AI visual dubbing technology.',
+            videoId: 'youtube-iQ1OPpj8gPA'
+        },
+        {
+            category: 'animation',
+            title: 'The Magic Soup',
+            year: '2013',
+            description: 'Stop motion animation shot on film as part of a workshop with Steve Cossman at Mono no Aware',
+            videoId: 'vimeo-88114858'
+        },
+        {
+            category: 'animation',
+            title: 'History of Kindness',
+            year: '2012',
+            description: 'Hand-drawn animated short film inspired by Don Hertzfeldt.',
+            videoId: 'vimeo-61793422'
+        },
+        {
+            category: 'animation',
+            title: 'Relationships Are Like Eggplants',
+            year: '2015',
+            description: 'Hand-drawn animated short exploring relationships.',
+            videoId: 'vimeo-249128982'
+        },
+        {
+            category: 'animation',
+            title: 'what up, cupcake',
+            year: '2015',
+            description: 'Hand-drawn animated short exploring space time.',
+            videoId: 'vimeo-416423613'
+        },
+        {
+            category: 'experimental',
+            title: 'Beasts of the Alchemical Wild',
+            year: '2017',
+            description: 'Creative exploration.',
+            videoId: 'vimeo-411659180'
+        },
+        {
+            category: 'experimental',
+            title: 'Doppeldate',
+            year: '2020',
+            description: 'Entry for Filmsupply Editfest - Doppeldate app.',
+            videoId: 'vimeo-365392577'
+        },
+        {
+            category: 'experimental',
+            title: 'The Very Personal Magic of Instant Gratification',
+            year: '2020',
+            description: 'Creative exploration of Alice in Wonderland and Polaroid.',
+            videoId: 'vimeo-329259775'
+        },
+        {
+            category: 'experimental',
+            title: 'Roy Lichtenstein (1966) Remix',
+            year: '2018',
+            description: 'Creative exploration of a Roy Lichtenstein interview.',
+            videoId: 'vimeo-275848009'
+        },
+        {
+            category: 'experimental',
+            title: 'Awakening',
+            year: '2018',
+            description: 'Creative exploration of awakening.',
+            videoId: 'vimeo-272145320'
+        }
+    ];
+
+    let currentCategory = 'ai';
+    let currentIndex = 0;
+
+    const videoContainer = document.querySelector('.video-container');
+    const titleElement = document.getElementById('title');
+    const yearElement = document.getElementById('year');
+    const descriptionElement = document.getElementById('description');
+    const prevButton = document.querySelector('.prev');
+    const nextButton = document.querySelector('.next');
+    const categoryElements = document.querySelectorAll('.category');
+
+    function createVideoEmbed(videoId) {
+        if (videoId.startsWith('vimeo-')) {
+            const vimeoId = videoId.replace('vimeo-', '');
+            return `<iframe src="https://player.vimeo.com/video/${vimeoId}?autoplay=0&loop=1&title=0&byline=0&portrait=0" width="100%" height="100%" frameborder="0" allow="fullscreen" allowfullscreen></iframe>`;
+        } else if (videoId.startsWith('youtube-')) {
+            const youtubeId = videoId.replace('youtube-', '');
+            return `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/${youtubeId}?autoplay=0&loop=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+        } else if (videoId === 'netflix-81487901') {
+            return `<div class="video-placeholder">
+                <div style="padding: 60px 20px; text-align: center; background: #000; color: #fff; border-radius: 6px;">
+                    <h3 style="color: #e50914; margin-bottom: 10px;">NETFLIX</h3>
+                    <p>Orgasm Inc: The Story of OneTaste</p>
+                </div>
+            </div>`;
+        } else if (videoId === 'flawless-ai') {
+            return `<div class="video-placeholder">
+                <div style="padding: 60px 20px; text-align: center; background: linear-gradient(45deg, #667eea 0%, #764ba2 100%); color: #fff; border-radius: 6px;">
+                    <h3 style="margin-bottom: 10px;">FLAWLESS AI</h3>
+                    <p>Visual Dubbing Technology</p>
+                </div>
+            </div>`;
+        } else if (videoId === 'apple-scriptonite') {
+            return `<div class="video-placeholder">
+                <div style="padding: 60px 20px; text-align: center; background: linear-gradient(45deg, #000, #333); color: #fff; border-radius: 6px;">
+                    <h3 style="margin-bottom: 10px;">🍎 APPLE MUSIC</h3>
+                    <p>Behind Scriptonite's 2004</p>
+                </div>
+            </div>`;
+        } else if (videoId === 'pbs-roots') {
+            return `<div class="video-placeholder">
+                <div style="padding: 60px 20px; text-align: center; background: linear-gradient(45deg, #1f4e99, #326bb3); color: #fff; border-radius: 6px;">
+                    <h3 style="margin-bottom: 10px;">📺 PBS</h3>
+                    <p>Finding Your Roots</p>
+                </div>
+            </div>`;
+        }
+        return '<div class="video-placeholder"><p>Video not available</p></div>';
+    }
+
+    function showProject(index) {
+        const categoryProjects = projects.filter(p => p.category === currentCategory);
+        if (categoryProjects.length === 0) return;
+        
+        const project = categoryProjects[index];
+        videoContainer.innerHTML = createVideoEmbed(project.videoId);
+        titleElement.textContent = project.title;
+        yearElement.textContent = project.year;
+        descriptionElement.textContent = project.description;
+    }
+
+    function showPrevProject() {
+        const categoryProjects = projects.filter(p => p.category === currentCategory);
+        if (categoryProjects.length === 0) return;
+        
+        currentIndex = (currentIndex - 1 + categoryProjects.length) % categoryProjects.length;
+        showProject(currentIndex);
+    }
+
+    function showNextProject() {
+        const categoryProjects = projects.filter(p => p.category === currentCategory);
+        if (categoryProjects.length === 0) return;
+        
+        currentIndex = (currentIndex + 1) % categoryProjects.length;
+        showProject(currentIndex);
+    }
+
+    function changeCategory(category) {
+        currentCategory = category;
+        currentIndex = 0;
+        showProject(currentIndex);
+        categoryElements.forEach(el => el.classList.remove('active'));
+        document.querySelector(`.category[data-category="${category}"]`).classList.add('active');
+    }
+
+    // Event listeners
+    prevButton.addEventListener('click', showPrevProject);
+    nextButton.addEventListener('click', showNextProject);
+    categoryElements.forEach(category => {
+        category.addEventListener('click', () => changeCategory(category.dataset.category));
+    });
+
+    // Show initial project
+    showProject(currentIndex);
+</script>
+</body>
+</html>
